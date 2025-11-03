@@ -26,7 +26,6 @@ const linksColumns = ref([
     ],
   },
 ]);
-const buildTime = __BUILD_TIME__;
 </script>
 <template>
   <footer class="footer">
@@ -103,9 +102,7 @@ const buildTime = __BUILD_TIME__;
         <div class="footer__info cell-8 cell-12-sm">
           <p>ООО «Demo» (ИНН 7842177770, ОГРН 1167777776230)</p>
           <p>190000, Санкт-Петербург, Исаакиевская пл., 4, лит. А,</p>
-          <div class="build-timestamp" aria-hidden="true">
-            assembly ver: {{ buildTime }}
-          </div>
+          <BuildTime />
         </div>
       </div>
     </div>

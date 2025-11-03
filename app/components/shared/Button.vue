@@ -1,10 +1,4 @@
-<template>
-  <button :disabled="disabled">
-    <slot>{{ label }}</slot>
-  </button>
-</template>
-
-<script lang="ts">
+<script setup lang="ts">
 defineProps({
   label: {
     type: String,
@@ -24,5 +18,10 @@ defineProps({
   },
 });
 </script>
+<template>
+  <button :disabled="disabled">
+    <slot>{{ label }}</slot>
+  </button>
+</template>
 
 <style lang="scss"></style>

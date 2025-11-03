@@ -1,15 +1,10 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
+  "exclude": ["data", "node_modules"],
   "compilerOptions": {
-    "strict": true,
     "noImplicitAny": false,
-    "target": "ES2020",
     "lib": ["ES2020", "DOM"],
-    "moduleResolution": "bundler",
     "module": "ESNext",
-    "paths": {
-      "~/*": ["./app/*"],
-      "@/*": ["./app/*"]
-    },
     "types": ["node", "vitest/globals", "happy-dom", "nuxt"],
     "skipLibCheck": true
   }

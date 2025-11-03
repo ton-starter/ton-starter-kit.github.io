@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import BaseButton from '@/components/BaseButton.vue';
+import BaseButton from '@/components/BaseButton.vue'; // несуществующий файл, пример для сторибука
 
 const meta: Meta<typeof BaseButton> = {
   component: BaseButton,
