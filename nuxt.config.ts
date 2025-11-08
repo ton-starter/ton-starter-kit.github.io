@@ -4,10 +4,13 @@ import appSEO from './data/seo.json';
 
 export default defineNuxtConfig({
   srcDir: './app',
+  rootDir: __dirname,
+
   app: {
     head: appSEO,
   },
 
+  // Временный хак для добавления страницы 404
   hooks: {
     'pages:extend'(pages) {
       pages.push({
@@ -61,10 +64,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl:
-        process.env.NODE_ENV === 'production'
-          ? 'https://klimov-rv.github.io/ton-starter/'
-          : 'http://localhost:3030',
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || '',
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '',
     },
   },
@@ -108,6 +108,14 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
     bundle: {
       optimizeTranslationDirective: false,
+    },
+  },
+
+  // пререндер для статического хостинга github-pages
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/getting-started', '/404'],
     },
   },
 });
