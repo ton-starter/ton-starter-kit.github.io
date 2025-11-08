@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@/assets/styles/main.scss'],
+  css: ['~/assets/styles/main.scss'],
 
   modules: [
     '@nuxt/test-utils',
@@ -42,22 +42,22 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: '@/components/shared',
+      path: '~/components/shared',
       pattern: '**/*.vue',
       prefix: '',
     },
     {
-      path: '@/components/entities',
+      path: '~/components/entities',
       pattern: '**/*.vue',
       prefix: '',
     },
     {
-      path: '@/components/features',
+      path: '~/components/features',
       pattern: '**/*.vue',
       prefix: '',
     },
     {
-      path: '@/components/widgets',
+      path: '~/components/widgets',
       pattern: '**/*.vue',
       prefix: '',
     },
