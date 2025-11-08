@@ -20,6 +20,17 @@ jobs:
           static_site_generator: nuxt
       - name: Install dependencies
         run: npm install
+      - name: Clean Nuxt cache
+        run: |
+          rm -rf .nuxt
+          rm -rf node_modules/.cache
+          rm -rf .output
+      - name: Debug dependencies
+        run: |
+          echo "=== Installed Element Plus ==="
+          npm list element-plus @element-plus/nuxt
+          echo "=== Nuxt modules ==="
+          npx nuxi module list
       - name: Static HTML export with Nuxt
         run: npm run build:gh-pages
       # - run: npx nuxt build:gh-pages --preset github_pages
