@@ -61,13 +61,26 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3030',
+      baseUrl:
+        process.env.NODE_ENV === 'production'
+          ? 'https://klimov-rv.github.io/ton-starter/'
+          : 'http://localhost:3030',
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '',
     },
   },
 
   devServer: {
     port: 3030,
+  },
+
+  ssr: false,
+  target: 'static',
+
+  nitro: {
+    static: true,
+    prerender: {
+      routes: ['/'],
+    },
   },
 
   compatibilityDate: '2025-01-23',
