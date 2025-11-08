@@ -1,5 +1,7 @@
 const buildDate = new Date();
-export default `[${buildDate.getFullYear()}-${(buildDate.getMonth() + 1)
+const formattedBuildDate = `[${buildDate.getFullYear()}-${(
+  buildDate.getMonth() + 1
+)
   .toString()
   .padStart(2, '0')}-${buildDate
   .getDate()
@@ -11,3 +13,5 @@ export default `[${buildDate.getFullYear()}-${(buildDate.getMonth() + 1)
   .getMinutes()
   .toString()
   .padStart(2, '0')}m_${buildDate.getSeconds().toString().padStart(2, '0')}s`;
+
+export default JSON.stringify(formattedBuildDate);

@@ -1,5 +1,8 @@
 @use './global/reset.css';
 @use './global/simple-adaptive-grid.css';
+@use './global/_colors.scss';
+@use './global/element.scss';
+@use './global/fonts.scss';
 
 :root {
   --gradient-purple-to-pink: linear-gradient(

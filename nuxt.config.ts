@@ -8,11 +8,17 @@ export default defineNuxtConfig({
     head: appSEO,
   },
 
-  css: [
-    '@/assets/styles/main.scss',
-    '@/assets/styles/global.scss',
-    '@/assets/styles/fonts.scss',
-  ],
+  hooks: {
+    'pages:extend'(pages) {
+      pages.push({
+        name: '404',
+        path: '/:pathMatch(.*)*',
+        file: '~/layouts/error.vue',
+      });
+    },
+  },
+
+  css: ['@/assets/styles/main.scss'],
 
   modules: [
     '@nuxt/test-utils',
@@ -83,14 +89,14 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
-          @use "~/assets/styles/element.scss" as element;
-          @use "~/assets/styles/_colors.scss" as *;
+          @use "~/assets/styles/global/element.scss" as element;
+          @use "~/assets/styles/global/_colors.scss" as *;
           `,
         },
       },
     },
     define: {
-      __BUILD_TIME__: JSON.stringify(appStamp),
+      __BUILD_TIME__: appStamp,
     },
   },
 
