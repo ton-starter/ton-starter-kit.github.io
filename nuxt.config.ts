@@ -3,6 +3,8 @@ import __BUILD_TIME__ from './app/buildTime.js';
 import appSEO from './data/seo.json';
 
 export default defineNuxtConfig({
+  compatibilityDate: '2025-01-23',
+  devtools: { enabled: true },
   srcDir: './app',
   rootDir: __dirname,
 
@@ -62,9 +64,6 @@ export default defineNuxtConfig({
     port: 3030,
   },
 
-  compatibilityDate: '2025-01-23',
-  devtools: { enabled: true },
-
   typescript: {
     strict: true,
     tsConfig: {
@@ -97,6 +96,17 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
     bundle: {
       optimizeTranslationDirective: false,
+    },
+  },
+
+  // В Nuxt 3 с SSR ошибки 404 могут не попадать в error.vue, если сервер не настроен на это.
+  // Кастомная обработка ошибок:
+  hooks: {
+    'app:error'(error) {
+      // Принудительно перенаправляем на error.vue при 404
+      if (error.statusCode === 404) {
+        return sendRedirect(error.event, '/404', 404);
+      }
     },
   },
 });
