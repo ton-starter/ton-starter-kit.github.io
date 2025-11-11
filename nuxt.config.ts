@@ -10,17 +10,6 @@ export default defineNuxtConfig({
     head: appSEO,
   },
 
-  // Временный хак для добавления страницы 404
-  hooks: {
-    'pages:extend'(pages) {
-      pages.push({
-        name: '404',
-        path: '/:pathMatch(.*)*',
-        file: '~/layouts/error.vue',
-      });
-    },
-  },
-
   css: ['~/assets/styles/main.scss'],
 
   modules: [
