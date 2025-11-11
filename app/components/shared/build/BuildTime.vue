@@ -9,7 +9,13 @@ const buildTime = __BUILD_TIME__ || 'date err';
     <div class="show-flex flex-between">
       <span> © 2025 TON Starter Guide. </span>
       &lt;
-      <a href="https://github.com/klimov-rv">Github</a>
+      <a
+        href="https://github.com/ton-starter/ton-starter.github.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Github</a
+      >
       &nbsp;<i class="fab fa-github-alt"></i> /&gt;
     </div>
     <br />
